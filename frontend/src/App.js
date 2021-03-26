@@ -1,12 +1,18 @@
 import "bootstrap/dist/css/bootstrap.min.css";
-import Header from "./components/Header"
+import Navigation from "./components/Navigation";
+import Search from "./components/Search";
 
 function App() {
   return (
-    <div>
-      <Header title="Images Gallery" />
-    </div>
+    <>
+      <header className="mb-4">
+        <Navigation title="Images Gallery" />
+      </header>
+      <Search />
+    </>
   );
 }
+
+console.log(App())
 
 export default App;
