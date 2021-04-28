@@ -2,6 +2,7 @@ import { useState } from "react";
 import "bootstrap/dist/css/bootstrap.min.css";
 import Navigation from "./components/Navigation";
 import Search from "./components/Search";
+import { buildEndpoint } from "./utils";
 
 function App() {
   const [query, setQuery] = useState("");
@@ -9,7 +10,12 @@ function App() {
   const searchOnSubmit = (event) => {
     // Prevent default behavior
     event.preventDefault();
-    console.log(query)
+    const searchPhotoURL = buildEndpoint("random", `query=${query}`);
+    fetch(searchPhotoURL)
+      .then((res) => res.json())
+      .then((searchResults) => {
+        console.log(searchResults)
+      })
   };
 
   return (
