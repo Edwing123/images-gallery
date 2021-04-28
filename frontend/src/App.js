@@ -14,8 +14,9 @@ function App() {
     fetch(searchPhotoURL)
       .then((res) => res.json())
       .then((searchResults) => {
-        console.log(searchResults)
-      })
+        console.log(searchResults);
+        setQuery("");
+      });
   };
 
   return (
